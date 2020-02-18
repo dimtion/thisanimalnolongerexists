@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}{{ specie.scientific_name }}{% endblock %}
+
+{% block content %}
+<h1 class="wanted"><a href="/">This animal no longer exists</a></h1>
+<div class="mugshot-ctn">
+  <img class="mugshot" src="{{ specie.get_mugshot_url() }}" alt="{{ specie.scientific_name }} mugshot" />
+</div>
+<h1>{{ specie.scientific_name }}</h1>
+{% if !specie.last_seen.is_empty() %}
+<h2 class="last-seen">Last seen in the wild: {{ specie.last_seen }}</h2>
+{% endif %}
+<div class="more">
+  <a href="{{ specie.get_iucn_url() }}">Info</a>
+  {% if !specie.img_credit_url.is_empty() %}<a href="{{ specie.img_credit_url }}">Image credit</a>{% endif %}
+  <a href="{{ specie.get_permalink() }}">Permalink</a>
+</div>
+{% endblock %}

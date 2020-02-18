@@ -1,0 +1,3 @@
+language: rust
+rust:
+  - 1.40.0

@@ -1,0 +1,151 @@
+html {
+  --text-color-normal: #540b0e;
+  --text-color-light: #540b0e;
+  --text-color-highlight: #e09f3e;
+  --background-color: #fff3b0;
+  --border-color: #9e2a2b;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  html {
+    --text-color-normal: #fff3b0;
+    --text-color-light: #e09f3e;
+    --text-color-highlight: #9e2a2b;
+    --background-color: #335c67;
+    --border-color: #9e2a2b;
+  }
+
+  img {
+    opacity: .75;
+  }
+}
+
+html {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-color-normal);
+  background-color: var(--background-color);
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.page {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 100%;
+}
+
+.container {
+  max-width: 1024px;
+  width: 100%;
+  margin: auto;
+  height: 100%;
+}
+
+.about {
+  max-width: 512px;
+  width: calc(100% - 16px);
+  margin: 64px auto auto auto;
+  text-align: justify;
+}
+
+
+h1 {
+  text-transform: uppercase;
+  margin: 16px 0;
+  text-align: center;
+}
+
+.mugshot-ctn {
+  height: 512px;
+  max-width: 512px;
+  position: relative;
+  margin: 16px auto;
+}
+
+.mugshot {
+  display: block;
+  background-color: #eeeeee;
+  border: none;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  margin: auto;
+  border: 16px solid var(--border-color);
+  border-radius: 8px;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .mugshot-ctn {
+    max-width: 100%;
+    max-height: 256px;
+  }
+  .mugshot {
+    max-width: calc(100% - 4*8px);
+    border: 8px solid var(--border-color);
+  }
+}
+
+h1 a {
+  color: var(--text-color-normal);
+  text-decoration: none;
+}
+
+p a, .more a, footer a {
+  color: var(--text-color-light);
+  /* background-color: var(--text-color-highlight); */
+  /* background-size: 100% .2em; */
+
+  background-image: linear-gradient(120deg, var(--text-color-highlight) 0%, var(--text-color-highlight) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 10%;
+  background-position: 0 100%;
+  transition: background-size 0.1s ease-in;
+
+  text-decoration: none;
+  padding: .2em .4em;
+  margin: 2px;
+}
+
+p a {
+  padding: .2em .2em;
+  margin: 0;
+}
+
+p {
+  line-height: 1.4em;
+  margin-bottom: 2em;
+
+}
+
+a:hover {
+  background-size: 100% 100%;
+}
+
+.last-seen {
+  text-align: center;
+}
+
+.more {
+  text-align: center;
+}
+
+footer {
+  font-size: .9em;
+  text-align: end;
+  margin: 8px;
+}
+
