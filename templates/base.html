@@ -40,5 +40,16 @@
         <a href="https://github.com/dimtion/thisanimalnolongerexists">Source</a>
       </footer>
     </div>
+    {% if !app.tracking_code.is_empty() -%}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ app.tracking_code }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', '{{ app.tracking_code }}');
+    </script>
+    {%- endif %}
   </body>
 </html>
