@@ -64,8 +64,7 @@ async fn main() -> std::io::Result<()> {
         serde_yaml::from_reader(db_file).unwrap()
     };
 
-    println!("Starting web server");
-    println!("Database size: {}", &database.len());
+    println!("Starting web server on http://{} with a database of size {}", listen, &database.len());
 
     HttpServer::new(move || {
         let app = AppState {
